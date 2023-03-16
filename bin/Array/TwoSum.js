@@ -1,7 +1,8 @@
 
 /**
  * @param {number[]} nums = [2,7,11,15];
- * @param {number} target = 17;
+ * @param
+ *  {number} target = 17;
  * @return {number[]}
  */
 
