@@ -13,6 +13,8 @@
  * You can return the answer in any order.
  */
 
+
+// first
 	function twoSum(nums, target) {
 		
 		const map = new Map();
@@ -28,4 +30,21 @@
 		
 		throw new Error ("It's error !");
 	}
+
+
+// second
+	function twoSum(nums, target) {
+	    for (let i = 0; i < nums.length - 1; i++) {
+	        for (let j = i + 1; j < nums.length; j++) {
+	            if (nums[i] + nums[j] === target) {
+	                return [i, j];
+	            }
+	        }
+	    }
+	    throw new Error("No two numbers add up to target.");
+	}
+
+
+
+
 

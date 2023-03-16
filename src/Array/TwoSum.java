@@ -1,6 +1,6 @@
 package Array;
 import java.util.HashMap;
-
+import java.util.Map;
 
 /**
  * @param {number[]} nums = [2,7,11,15];
@@ -16,18 +16,74 @@ import java.util.HashMap;
  * You can return the answer in any order.
  */
 
+	class twoSum {
+	    public int[] twoSum(int[] nums, int target) {
+	        int n=nums.length;
+	        Map<Integer,Integer> map=new HashMap<>();
+	        int[] result=new int[2];
+	        for(int i=0;i<n;i++){
+	            if(map.containsKey(target-nums[i])){
+	                result[1]=i;
+	                result[0]=map.get(target-nums[i]);
+	                return result;
+	            }
+	            map.put(nums[i],i);
+	        }
+	        return result;
+	    }
+	}
 
-class TwoSum {
-    public int[] twoSum(int[] nums, int target) {
-        
-    	HashMap<Integer, Integer> tracker = new HashMap<Integer, Integer>();
-        for(int i = 0; i < nums.length; i++){
-            if(tracker.containsKey(nums[i])){
-                int left = tracker.get(nums[i]);
-                return new int[]{left, i};
-            }else
-                tracker.put(target - nums[i], i);
-        }
-        return new int[2];
-    }
-}
+//	
+//	class twoSum {
+//	    public int[] twoSum(int[] nums, int target) {
+//	        int n = nums.length;
+//	        int[] numsCopy = Arrays.copyOf(nums, n);
+//	        Arrays.sort(numsCopy);
+//	        int i = 0;
+//	        int j = n - 1;
+//	        int[] result = new int[2];
+//	        while (i < j) {
+//	            int sum = numsCopy[i] + numsCopy[j];
+//	            if (sum == target) {
+//	                result[0] = findIndex(nums, numsCopy[i], -1);
+//	                result[1] = findIndex(nums, numsCopy[j], result[0]);
+//	                return result;
+//	            } else if (sum < target) {
+//	                i++;
+//	            } else {
+//	                j--;
+//	            }
+//	        }
+//	        return result;
+//	    }
+//	    
+//	    private int findIndex(int[] nums, int target, int exclude) {
+//	        for (int i = 0; i < nums.length; i++) {
+//	            if (nums[i] == target && i != exclude) {
+//	                return i;
+//	            }
+//	        }
+//	        return -1;
+//	    }
+//	}
+//
+//	
+//	
+//	class twoSum {
+//	    public int[] twoSum(int[] nums, int target) {
+//	        int n = nums.length;
+//	        Map<Integer, Integer> map = new HashMap<>();
+//	        int[] result = new int[2];
+//	        for (int i = 0; i < n; i++) {
+//	            int complement = target - nums[i];
+//	            if (map.containsKey(complement)) {
+//	                result[0] = map.get(complement);
+//	                result[1] = i;
+//	                return result;
+//	            }
+//	            map.put(nums[i], i);
+//	        }
+//	        return result;
+//	    }
+//	}
+//
