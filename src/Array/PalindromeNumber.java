@@ -15,8 +15,7 @@ public class PalindromeNumber {
 // convert the integer 121 into an array 
 // without converting the integer to a string
 	
-	 public boolean isPalindrome(int x) {
-		 
+	
 
 //	   	int length = (int)(Math.log10(x) + 1); 
 //		int[] digits = new int[length];
@@ -43,8 +42,9 @@ public class PalindromeNumber {
 //		
 //		return true;
 	
-
+	public static boolean isPalindromeNumber(int x) {
 		
+	
 	 StringBuilder str = new StringBuilder();
 	 str.append(x);
 	 String result = str.toString();
@@ -55,6 +55,7 @@ public class PalindromeNumber {
 		 return false;
 	 }
  
+	}
 	
 
 //	    public boolean isPalindrome(int x) {
@@ -94,6 +95,6 @@ public class PalindromeNumber {
 //		        System.out.println("]");
 //		    }
 	 
-	 
-}
+}	 
+
 
