@@ -16,7 +16,6 @@ public class PalindromeNumber {
 // without converting the integer to a string
 	
 	
-
 //	   	int length = (int)(Math.log10(x) + 1); 
 //		int[] digits = new int[length];
 //		
