@@ -10,7 +10,7 @@ import java.util.Map;
 //D             500
 //M             1000
 
-//Example 1:
+//Example 1:home
 //Input: s = "III"
 //Output: 3
 //Explanation: III = 3.
@@ -20,7 +20,6 @@ import java.util.Map;
 //Output: 58
 //Explanation: L = 50, V= 5, III = 3.
 
-//Example 3:
 //Input: s = "MCMXCIV"
 //Output: 1994
 //Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
