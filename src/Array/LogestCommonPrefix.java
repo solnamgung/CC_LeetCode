@@ -1,48 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-class LogestCommonPrefix {
-    Node root;
+class Main {
     public String longestCommonPrefix(String[] strs) {
+        // Existing implementation of longestCommonPrefix method
+        // (Same as your previous code)
         if (strs == null || strs.length == 0) {
             return "";
         }
 
-        root = new Node('\0');
-        int min = Integer.MAX_VALUE;
-        List<Integer> list  = new ArrayList<>();
-        for(int i = 0; i < strs.length; i++) {
-            int count = insert(strs[i], i);
-            if(i != 0) //skip for first word or else min wont be updated
-                min = Math.min(min, count);
-        }
-        min = Math.min(min, strs[0].length());
-        return strs[0].substring(0, min);
-    }
+        Arrays.sort(strs);
 
-    public int insert(String word, int n) {
-        Node curr = root;
-        int count  = 0;
-        for(char ch: word.toCharArray()) {
-            if(curr.children[ch - 'a'] == null) {
-                if(n != 0) //skip for first word or else trie wont be constructed
-                    return count;
-                curr.children[ch - 'a'] = new Node(ch);
+        String firstStr = strs[0];
+        String lastStr = strs[strs.length - 1];
+
+        StringBuilder commonPrefix = new StringBuilder();
+        int minLength = Math.min(firstStr.length(), lastStr.length());
+        for (int i = 0; i < minLength; i++) {
+            if (firstStr.charAt(i) == lastStr.charAt(i)) {
+                commonPrefix.append(firstStr.charAt(i));
             } else {
-                count++;
+                break;
             }
-            curr = curr.children[ch - 'a'];
         }
-        return count;
+        return commonPrefix.toString();
     }
-    
-    class Node {
-        private char value;
-        private Node[] children;
 
-        public Node(char val) {
-            this.value = val;
-            this.children = new Node[26];
-        }
+    public static void main(String[] args) {
+        Main main = new Main();
+        String[] example = {"flower", "fly", "flight", "flue"};
+        String result = main.longestCommonPrefix(example);
+        System.out.println("Longest Common Prefix: " + result);
     }
 }
