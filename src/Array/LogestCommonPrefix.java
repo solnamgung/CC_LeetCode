@@ -1,34 +1,27 @@
 import java.util.Arrays;
 
-class Main {
+class Solution {
     public String longestCommonPrefix(String[] strs) {
-        // Existing implementation of longestCommonPrefix method
-        // (Same as your previous code)
-        if (strs == null || strs.length == 0) {
+        
+        if(strs == null || strs.length == 0) {
             return "";
         }
 
         Arrays.sort(strs);
+        String first = strs[0];
+        String last = strs[strs.length - 1];
 
-        String firstStr = strs[0];
-        String lastStr = strs[strs.length - 1];
-
+        int minLength = Math.min(first.length(), last.length());
         StringBuilder commonPrefix = new StringBuilder();
-        int minLength = Math.min(firstStr.length(), lastStr.length());
-        for (int i = 0; i < minLength; i++) {
-            if (firstStr.charAt(i) == lastStr.charAt(i)) {
-                commonPrefix.append(firstStr.charAt(i));
-            } else {
+
+        for(int i = 0; i < minLength; i++) {
+            if(first.charAt(i) == last.charAt(i)) {
+                commonPrefix.append(first.charAt(i));
+            } else{
                 break;
             }
         }
         return commonPrefix.toString();
-    }
 
-    public static void main(String[] args) {
-        Main main = new Main();
-        String[] example = {"flower", "fly", "flight", "flue"};
-        String result = main.longestCommonPrefix(example);
-        System.out.println("Longest Common Prefix: " + result);
     }
 }
