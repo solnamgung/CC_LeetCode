@@ -28,8 +28,25 @@ Explanation: "101" does not appear in nums. "000", "010", "100", and "110" would
 * All the strings of nums are unique.
 *
 * */
+
+//dddd
 class FindUniqueBinary {
     public String findDifferentBinaryString(String[] nums) {
 
+        StringBuilder stringBuilder = new StringBuilder();
+
+          for(int k = 0; k < nums.length; k++) {
+              System.out.println(nums[k].charAt(k));
+              stringBuilder.append(nums[k].charAt(k) == 0 ? 1 : 0);
+          }
+        return new String(stringBuilder);
+    }
+
+    public static void main(String[] args) {
+        FindUniqueBinary findUniqueBinary = new FindUniqueBinary();
+        String[] numbers = {"00" , "10" };
+
+        String answer = findUniqueBinary.findDifferentBinaryString(numbers);
+        System.out.println("Answer is >>>>>> " + answer);
     }
 }
